@@ -31,7 +31,7 @@ class MixedBackendLDAP(LDAPBackend):
         # or use LDAPBackend directly.
 
         if user:
-            user.set_password(password)
+            user.set_password(kwargs['password'])
             user.save()
         return user
 
