@@ -19,5 +19,8 @@ class TestLDAPAuth(TestCase):
         # this test doesnt do much other than make sure we have all the pieces in place.
         mock_auth.return_value = self.user
         auth_back = MixedBackendLDAP()
+        # code under test
         user = auth_back.authenticate(**{'username': 'testuser', 'password':'password'})
+        # test result
+        self.assertIsNotNone(user)
         self.assertEqual(user, self.user)
